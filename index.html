@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover," />
+  <meta name="theme-color" content="#d9d9d7" />
+  <title>Fog Mirror</title>
+<meta name="description" content="Draw in the air on a fogged mirror with camera hand tracking.">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="mirror">
+    <button id="language" aria-label="切换语言">English</button>
+    <video id="camera" autoplay muted playsinline></video>
+    <div id="fallback"></div>
+    <canvas id="fog"></canvas>
+
+    <div id="cursor" hidden></div>
+    <div id="palmProgress" hidden aria-hidden="true">🖐️</div>
+    <div class="grain"></div>
+    <div id="startCard" class="card">
+      <div class="drop">◌</div>
+      <h1>Fog Mirror</h1>
+      <p id="message">在镜头前伸出食指，隔空画出轨迹。<br>收起食指停笔，再伸出继续画。</p>
+      <button id="startBtn">打开镜子</button>
+      <small>需要摄像头权限 · 本机手势识别<br>画面仅在本机处理，不上传或录制</small>
+    </div>
+
+    <div id="hint"><span id="status">把手放到镜头前</span></div>
+
+    <div class="controls">
+      <label class="brush">笔画粗细 <input id="brush" type="range" min="6" max="120" value="18" aria-label="笔画粗细"><output id="brushValue">18 px</output></label>
+      <label class="brush fog-setting"><span id="fogLabel">镜面模糊度</span><input id="fogLevel" type="range" min="0" max="100" value="70" aria-label="镜面模糊度"><output id="fogValue">70%</output></label>
+      <div class="buttons">
+      <button id="clearBtn">完全无雾</button>
+      <button id="refogBtn" aria-label="重新起雾">重新起雾</button>
+      <button id="cameraBtn" aria-label="切换摄像头">切换镜头</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
